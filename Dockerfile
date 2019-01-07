@@ -1,7 +1,7 @@
 FROM node:carbon
 
 # Create app directory
-WORKDIR /usr/src/foreign-exchange
+WORKDIR /usr/src/foreign-exchange-currency
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND
