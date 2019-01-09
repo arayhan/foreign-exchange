@@ -11,30 +11,30 @@
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
-.currency-card .card-order-one {
+.currency-card .card-left {
     flex: 5;
     flex-direction: column;
     text-align: right;
 }
 
-.currency-card .card-order-one .currency-value,
-.currency-card .card-order-one .currency-detail {
+.currency-card .card-left .currency-value,
+.currency-card .card-left .currency-detail {
     display: flex;
     justify-content: space-between;
     padding: 10px 15px;
 }
 
-.currency-card .card-order-one .currency-value {
+.currency-card .card-left .currency-value {
     font-weight: bold;
     border-bottom: 1px solid #eee;
 }
 
-.currency-card .card-order-one .currency-detail {
+.currency-card .card-left .currency-detail {
     flex-direction: column;
     font-size: 0.9em;
 }
 
-.currency-card .card-order-two {
+.currency-card .btn-delete {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +42,11 @@
     color: white;
     text-align: center;
     padding: 0 20px;
+    cursor: pointer;
+    transition: all 250ms ease;
+    margin-top: 0;
 }
 
-.currency-card .card-order-two i {
+.currency-card .btn-delete:hover {
+    background: rgb(185, 48, 48);
 }
