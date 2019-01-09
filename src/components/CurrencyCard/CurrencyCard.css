@@ -21,7 +21,7 @@
 .currency-card .card-order-one .currency-detail {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 15px;
 }
 
 .currency-card .card-order-one .currency-value {

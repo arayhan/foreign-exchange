@@ -5,13 +5,13 @@ const CurrencyCard = (props) => (
     <div className="currency-card">
         <div className="card-order-one">
             <div className="currency-value">
-                <span>IDR</span>
-                <span>120.000,00-</span>
+                <span>{ props.currency }</span>
+                <span>{ props.amount }</span>
             </div>
             <div className="currency-detail">
-                <span>Indonesian Rupiah</span>
+                <span>{ props.abbreviation }</span>
                 <span>
-                    <em>1 USD = IDR 14.500</em>
+                    <em>1 USD = { props.currency } { props.value }</em>
                 </span>
             </div>
         </div>
