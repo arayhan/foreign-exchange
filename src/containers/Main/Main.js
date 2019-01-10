@@ -35,6 +35,14 @@ class Main extends Component {
         return (
             <section id="main">
                 <div className="currency-card-container">
+                    { 
+                        currencyItems.length === 0 
+                        && 
+                        <span style={{ textAlign: 'center', color: 'rgba(255,0,100,0.7)' }}>
+                            Data is empty <br />
+                            Press the button below to add currency
+                        </span> 
+                    }
                     {
                         currencyItems.map((rate) => {
                             return (

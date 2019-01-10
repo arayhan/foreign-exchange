@@ -1,6 +1,9 @@
+/** 
+ * Copyright A.Rayhan P 2019 | All right Reserved
+*/
+
 import React, { Component } from 'react';
 import CurrencyInput from 'react-currency-input';
-// import InputMask from 'react-input-mask';
 import './App.css';
 import Main from '../Main/Main';
 import Loading from '../../components/Loading/Loading';
@@ -20,10 +23,12 @@ class App extends Component {
         }
     }
 
+    // Get currencies from local storage
     getLocalCurrencies() {
         return JSON.parse(localStorage.getItem('currencies'));
     }
 
+    // Set currencies from local storage
     setLocalCurrencies(currencies) {
         localStorage.setItem('currencies', JSON.stringify(currencies));
     }
