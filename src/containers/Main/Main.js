@@ -6,27 +6,28 @@ import PopUp from '../../components/PopUp/PopUp';
 class Main extends Component {
     state = {
         isPopupShow: false,
+        inputValue: ''
     }
 
     handleSubmit = (event) => {
+        const data = new FormData(event.target);
+        this.props.onAddCurrency(data.get('currency'));
+        this.setState({ isPopupShow: !this.state.isPopupShow });
         event.preventDefault();
-        console.log(event.name);
     }
 
     handleChange = (event) => {
         const { value } = event.target;
-        console.log(value);
+        this.setState({ inputValue: value })
     }
 
     onDelete = (event) => {
-        console.log(event.target.value);
         this.props.onDeleteItems(event.target.value);
     }
 
     handleClick = (event) => {
-        const { isPopupShow } = this.state;
         const { className } = event.target;
-        (!isPopupShow || className === 'popup-background') && this.setState({ isPopupShow: !this.state.isPopupShow })
+        (!this.state.isPopupShow || className === 'popup-background') && this.setState({ isPopupShow: !this.state.isPopupShow })
     }
 
     render() {

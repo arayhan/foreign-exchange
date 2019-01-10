@@ -10,7 +10,7 @@
     align-items: center;
     flex-direction: column;
     transition: all 500ms ease;
-    transition-delay: 500ms;
+    transition-delay: 1s;
     z-index: 15;
 }
 

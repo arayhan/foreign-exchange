@@ -16,7 +16,7 @@ class App extends Component {
             setDefaultCurrencies: ['IDR','EUR','GBP','SGD'],
             rates: {},
             abbreviation: {},
-            isLoading: false
+            isLoading: true
         }
     }
 
@@ -29,23 +29,26 @@ class App extends Component {
     }
     
     componentDidMount = () => {
-        const getLocalCurrencies = this.getLocalCurrencies();
-        console.log(getLocalCurrencies);
-        
         (this.getLocalCurrencies() === null) && this.setLocalCurrencies(this.state.setDefaultCurrencies);
-
+        
         this.setState({ isLoading: true, currencyItems: this.getLocalCurrencies() });
+        
         fetch(`https://api.exchangeratesapi.io/latest?base=${ this.state.setCurrency }`)
             .then(res => res.json())
             .then(res => this.setState({ rates: res.rates, isLoading: false }));
-
+        
         fetch('https://openexchangerates.org/api/currencies.json')
             .then(res => res.json())
             .then(res => this.setState({ abbreviation: res, isLoading: false }));
     }
 
-    handleChange = (e, maskedValue, floatValue) => {
+    handleChange = (event, maskedValue, floatValue) => {
         this.setState({ inputValue: maskedValue, amount: floatValue });
+    }
+
+    onAddCurrency = (currency) => {
+        this.state.currencyItems.push(currency);
+        this.setLocalCurrencies(this.state.currencyItems);
     }
 
     onDeleteItems = (item) => {
@@ -56,10 +59,9 @@ class App extends Component {
 
 	render() {
         const { isLoading, setCurrency } = this.state;
-        console.log(this.getLocalCurrencies());
 		return (
             <div className="App">
-            <Loading show={ isLoading ? 'show' : 'hide' }/>
+                <Loading show={ isLoading ? 'show' : 'hide' }/>
                 <div className="wrapper">
                     <header>
                         <div className="header-background"></div>
@@ -80,11 +82,13 @@ class App extends Component {
                         </div>
                     </header>
                     <Main 
+                        isLoading={ this.state.isLoading }
                         abbreviation={ this.state.abbreviation }
                         rates={ this.state.rates }
                         amount={ this.state.amount }
                         currencyItems={ this.state.currencyItems }
                         onDeleteItems={ this.onDeleteItems }
+                        onAddCurrency={ this.onAddCurrency }
                     />
                 </div>
             </div>

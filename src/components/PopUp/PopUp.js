@@ -8,12 +8,16 @@ const PopUp = (props) => {
             <div className="popup-inner">
                 <h3>Select Currency</h3>
                 <form onSubmit={ props.handleSubmit } name="selectCurrencyForm">
-                    <select name="currency" onChange={ props.handleChange }>
-                        { Object.keys(props.rates).map(rate => (
-                            (!props.currencyItems.includes(rate)) 
-                            && 
-                            <option key={ rate } value={ rate }>{ rate }</option>
-                        )) }
+                    <select name="currency" defaultValue={ Object.keys(props.rates)[0] } onChange={ props.handleChange }>
+                        { 
+                            Object.keys(props.rates).map((rate, index) => {
+                                return (
+                                    (!props.currencyItems.includes(rate)) 
+                                    && 
+                                    <option key={ rate } value={ rate }>{ rate }</option>
+                                )
+                            }) 
+                        }
                     </select>
                     <button type="submit">Add Currency</button>
                 </form>
