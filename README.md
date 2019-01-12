@@ -1,1 +1,1 @@
-#Foreign Exchange App - ReactJS
+#Foreign Exchange Currency App - ReactJS
