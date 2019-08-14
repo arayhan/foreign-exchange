@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/arayhan/foreign-exchange/precache-manifest.60c6e21dae0f30f58bbd3784de7d9f9f.js"
+  "/foreign-exchange-currency/precache-manifest.5b5e782058375df0711d03e44ea39612.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/arayhan/foreign-exchange/index.html", {
+workbox.routing.registerNavigationRoute("/foreign-exchange-currency/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
